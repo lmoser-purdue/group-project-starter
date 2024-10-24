@@ -10,6 +10,9 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
+    // Enable static file serving from wwwroot
+    app.UseStaticFiles();
+
     app.UseSwagger();
     app.UseSwaggerUI();
 }
