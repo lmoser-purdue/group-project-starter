@@ -5,9 +5,9 @@ name: .NET
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "**" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "**" ]
 
 jobs:
   build:
@@ -27,4 +27,4 @@ jobs:
     - name: Test
       run: dotnet test --no-build --verbosity normal
     - name: Format
-      run: dotnet format .\group-project-starter.csproj --verify-no-changes --verbosity diagnostic
+      run: dotnet format ./\group-project-starter.csproj --verify-no-changes --verbosity diagnostic
