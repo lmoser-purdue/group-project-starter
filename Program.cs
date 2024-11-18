@@ -7,6 +7,15 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
+var unusedVariable = 8;
+
+object? unsetObject = null;
+
+if (unsetObject.GetHashCode() > 0)
+{
+    //we cannot reach this code.
+}
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -26,7 +35,7 @@ var summaries = new[]
 
 app.MapGet("/weatherforecast", () =>
 {
-    var forecast =  Enumerable.Range(1, 7).Select(index =>
+    var forecast = Enumerable.Range(1, 7).Select(index =>
         new WeatherForecast
         (
             DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
@@ -40,6 +49,8 @@ app.MapGet("/weatherforecast", () =>
 .WithOpenApi();
 
 app.Run();
+
+if (true) Console.WriteLine("Hello");
 
 record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
 {
